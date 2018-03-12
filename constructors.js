@@ -36,9 +36,35 @@ function expect(target) {
 //
 // Only add code to *THIS* section!
 
-// ????????
-// ????????
-// ????????
+function Dog (anObject){
+  //default property values
+  this.color = '';
+  this.hungry = true;
+  this.status = 'normal';
+  //setting property values
+  if (typeof anObject === 'object'){
+    anObject.hasOwnProperty('color') ? this.color = anObject.color : this.color = ''
+    anObject.hasOwnProperty('hungry') ? this.hungry = anObject.hungry : this.hungry = true
+    anObject.hasOwnProperty('status') ? this.status = anObject.status : this.status = 'normal'
+    anObject.hasOwnProperty('owner') ? this.owner = anObject.owner : undefined
+  } 
+}
+
+function Human(anObject) {
+  //default property values
+  this.cool = false;
+  //setting property values
+  if (typeof anObject === 'object'){
+    anObject.hasOwnProperty('cool') ? this.cool = anObject.cool : this.cool = false
+  }
+}
+
+Human.prototype.pet = function(aDog){
+  aDog.status = 'happy'
+}
+Human.prototype.feed = function(aDog){
+  aDog.hungry = false 
+}
 
 
 //        __
