@@ -36,6 +36,7 @@ function expect(target) {
 //
 // Only add code to *THIS* section!
 
+
 function Dog (anObject){
   //default property values
   this.color = '';
@@ -66,6 +67,66 @@ Human.prototype.feed = function(aDog){
   aDog.hungry = false 
 }
 
+
+//class variation
+/*
+class Dog {
+  constructor(anObject){
+    this.color = '';
+    this.hungry = true;
+    this.status = 'normal';
+    if (typeof anObject === 'object'){
+      anObject.hasOwnProperty('color') ? this.color = anObject.color : this.color = ''
+      anObject.hasOwnProperty('hungry') ? this.hungry = anObject.hungry : this.hungry = true
+      anObject.hasOwnProperty('status') ? this.status = anObject.status : this.status = 'normal'
+      anObject.hasOwnProperty('owner') ? this.owner = anObject.owner : undefined
+   } 
+  }
+}
+class Human {
+  constructor(anObject){
+    this.cool = false;
+    //setting property values
+    if (typeof anObject === 'object'){
+      anObject.hasOwnProperty('cool') ? this.cool = anObject.cool : this.cool = false
+    }
+  }
+  pet (aDog){
+    aDog.status = 'happy'
+  }
+  feed (aDog){
+    aDog.hungry = false
+  }
+}
+*/
+
+//Object.create() variation
+/*
+const Dog = {
+  color: '',
+  hungry: true,
+  status: 'normal'
+}
+
+const Human = {
+  cool: false,
+  pet: aDog => aDog.status = 'happy',
+  feed: aDog => aDog.hungry = false
+}
+
+var sadie = Object.create(Dog)
+sadie.color = 'black'
+sadie.hungry = false
+
+var moonshine = Object.create(Dog)
+moonshine.color = 'blue-red'
+
+var atticus = Object.create(Dog)
+
+var mason = Object.create(Human)
+var julia = Object.create(Human)
+julia.cool = true
+*/
 
 //        __
 //   ____/ /___  ____ ______
